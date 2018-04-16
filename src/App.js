@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import request from './utils/request';
+import { TOKEN } from './utils/constants'
 
 class App extends Component {
+  componentDidMount(){
+    request(`https://api.themoviedb.org/3/movie/550?${TOKEN}`).then(data => {
+      this.initialData = JSON.parse(data);
+      console.log(this.initialData)
+    });
+  }
   render() {
     return (
       <div className="App">
