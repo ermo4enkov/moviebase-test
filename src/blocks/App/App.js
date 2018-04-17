@@ -3,12 +3,13 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import logo from '../../assets/logo.svg';
 import './App.css';
 import request from '../../utils/request';
-import { TOKEN } from '../../utils/constants';
+import { TOKEN, POPULAR_FILMS } from '../../utils/constants';
 import SideBar from '../SideBar';
 
 class App extends Component {
   componentDidMount() {
-    request(`https://api.themoviedb.org/3/movie/550?${TOKEN}`).then(data => {
+    let page = '1';
+    request(`${POPULAR_FILMS}${page}`).then(data => {
       this.initialData = JSON.parse(data);
       console.log(this.initialData);
     });
