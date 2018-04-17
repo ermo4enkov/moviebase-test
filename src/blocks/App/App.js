@@ -23,12 +23,9 @@ class App extends Component {
     });
   }
   render() {
-    console.log(this.state);
-    const Coll = this.state.data
-      ? this.state.data.map(item => {
-          <div>item</div>;
-        })
-      : 'sss';
+    this.state.data
+      ? this.state.data.map(item => console.log(item['original_title']))
+      : false;
     return (
       <MuiThemeProvider>
         <div className="App">
@@ -36,7 +33,6 @@ class App extends Component {
             <img src={logo} className="App-logo" alt="logo" />
             <h1 className="App-title">Welcome to React</h1>
           </header>
-          <Coll />
           <SideBar />
           <p className="App-intro">
             To get started, edit <code>src/App.js</code> and save to reload.
