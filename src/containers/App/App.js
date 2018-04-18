@@ -1,30 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
 import logo from '../../assets/logo.svg';
 import './App.css';
-import request from '../../utils/request';
-import { TOKEN, POPULAR_FILMS } from '../../utils/constants';
 import SideBar from '../SideBar';
 
+import getFilmsCollection from '../../redux/actions/getFilmsCollection';
+import { bindActionCreators } from 'redux';
+
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      data: null,
-    };
-  }
-  componentDidMount() {
-    let page = '1';
-    request(`${POPULAR_FILMS}${page}`).then(data => {
-      this.initialData = JSON.parse(data);
-      this.setState({
-        data: this.initialData.results,
-      });
-    });
-  }
+  componentDidMount() {}
   render() {
-    this.state.data ? this.state.data.map(item => console.log(item)) : false;
     return (
       <MuiThemeProvider>
         <div className="App">
@@ -42,4 +29,24 @@ class App extends Component {
   }
 }
 
-export default App;
+function mapStateToProps(state) {
+  return {
+    user: state.user,
+    data: state.data,
+    fetching: state.fetching,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    getFilmsCollection: bindActionCreators(getFilmsCollection, dispatch),
+  };
+}
+export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+// function mapDispatchProps(dispatch: any) {
+//   return {
+//     setTaskFinished: bindActionCreators(setTaskFinished, dispatch),
+//     addTask: bindActionCreators(addTask, dispatch),
+//   };
+// }
