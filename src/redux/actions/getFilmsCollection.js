@@ -7,6 +7,8 @@ export function getFilmsCollection(page) {
     return request(`${POPULAR_FILMS}${page}`).then(response => {
       if (response.status === 200) {
         dispatch(fetchFilmsSuccess(response['data']['results']));
+      } else {
+        dispatch(fetchFilmsError());
       }
     });
   };
@@ -22,6 +24,12 @@ function fetchFilmsSuccess(payload) {
   return {
     type: 'FETCH_REQUEST_SUCCESS',
     payload,
+  };
+}
+
+function fetchFilmsError() {
+  return {
+    type: 'FETCH_REQUEST_ERROR',
   };
 }
 export default getFilmsCollection;

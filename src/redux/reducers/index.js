@@ -15,6 +15,8 @@ export default function State(state = initialState, action) {
       return { ...state, fetching: true };
     case 'FETCH_REQUEST_SUCCESS':
       return { ...state, fetching: false, data: action.payload };
+    case 'FETCH_REQUEST_ERROR':
+      return { ...state, fetching: false };
     default:
       return state;
   }
