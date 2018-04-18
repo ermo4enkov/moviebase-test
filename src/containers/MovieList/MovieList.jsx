@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import MovieCard from '../../components/MovieCard';
+
 class MovieList extends Component {
-  componentDidUpdate() {
-    this.props['data'].forEach(element => {
-      console.log(element['title']);
-    });
-  }
   render() {
-    return <div>fdfddf</div>;
+    const { data } = this.props;
+    const MovieCards =
+      data.length > 0
+        ? data.map((item, index) => {
+            return <MovieCard key={index} title={item['title']} />;
+          })
+        : '...load';
+
+    return <div>{MovieCards}</div>;
   }
 }
 
