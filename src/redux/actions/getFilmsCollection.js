@@ -6,8 +6,7 @@ export function getFilmsCollection(page) {
     dispatch(fetchFilmsRequest());
     return request(`${POPULAR_FILMS}${page}`).then(response => {
       if (response.status === 200) {
-        console.log('dsss');
-        dispatch(fetchFilmsSuccess(response.data.result));
+        dispatch(fetchFilmsSuccess(response['data']['results']));
       }
     });
   };

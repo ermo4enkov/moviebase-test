@@ -10,7 +10,9 @@ import getFilmsCollection from '../../redux/actions/getFilmsCollection';
 import { bindActionCreators } from 'redux';
 
 class App extends Component {
-  componentDidMount() {}
+  componentDidMount() {
+    this.props.getFilmsCollection(1);
+  }
   render() {
     return (
       <MuiThemeProvider>
@@ -43,10 +45,3 @@ function mapDispatchToProps(dispatch) {
   };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(App);
-
-// function mapDispatchProps(dispatch: any) {
-//   return {
-//     setTaskFinished: bindActionCreators(setTaskFinished, dispatch),
-//     addTask: bindActionCreators(addTask, dispatch),
-//   };
-// }
