@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import logo from '../../assets/logo.svg';
 import './App.css';
@@ -23,9 +24,7 @@ class App extends Component {
     });
   }
   render() {
-    this.state.data
-      ? this.state.data.map(item => console.log(item['original_title']))
-      : false;
+    this.state.data ? this.state.data.map(item => console.log(item)) : false;
     return (
       <MuiThemeProvider>
         <div className="App">
