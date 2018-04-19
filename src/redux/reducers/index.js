@@ -7,6 +7,7 @@ const initialState = {
   filmsCollection: {},
   user: 'guest',
   page: 1,
+  total_pages: 0,
 };
 
 // film fields: genre_ids[numbers],original_title, overview, popularity, poster_path, release_date
@@ -20,6 +21,7 @@ export default function State(state = initialState, action) {
         fetching: false,
         filmsCollection: action.payload['results'],
         page: action.payload['page'],
+        total_pages: action.payload['total_pages'],
       };
     case 'FETCH_REQUEST_ERROR':
       return { ...state, fetching: false };
