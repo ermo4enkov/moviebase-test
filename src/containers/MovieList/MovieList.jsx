@@ -5,11 +5,20 @@ import MovieCard from '../../components/MovieCard';
 
 class MovieList extends Component {
   render() {
-    const { data } = this.props;
+    const { filmsCollection } = this.props;
     const MovieCards =
-      data.length > 0
-        ? data.map((item, index) => {
-            return <MovieCard key={index} title={item['title']} />;
+      filmsCollection.length > 0
+        ? filmsCollection.map((item, index) => {
+            return (
+              <MovieCard
+                key={index}
+                title={item['title']}
+                poster_path={item['poster_path']}
+                vote_average={item['vote_average']}
+                release_date={item['release_date']}
+                overview={item['overview']}
+              />
+            );
           })
         : '...load';
 
@@ -19,7 +28,7 @@ class MovieList extends Component {
 
 function mapStateToProps(state) {
   return {
-    data: state.data,
+    filmsCollection: state.filmsCollection,
   };
 }
 

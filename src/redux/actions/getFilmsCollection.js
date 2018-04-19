@@ -1,12 +1,13 @@
 import request from '../../utils/request';
 import { POPULAR_FILMS } from '../../utils/constants';
 
-export function getFilmsCollection(page) {
+export function getFilmsCollection(page = 1) {
   return dispatch => {
     dispatch(fetchFilmsRequest());
     return request(`${POPULAR_FILMS}${page}`).then(response => {
       if (response.status === 200) {
-        dispatch(fetchFilmsSuccess(response['data']['results']));
+        console.log(response['data']);
+        dispatch(fetchFilmsSuccess(response['data']));
       } else {
         dispatch(fetchFilmsError());
       }

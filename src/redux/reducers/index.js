@@ -4,8 +4,9 @@ import request from '../../utils/request';
 const initialState = {
   error: '',
   fetching: false,
-  data: {},
+  filmsCollection: {},
   user: 'guest',
+  page: 1,
 };
 
 // film fields: genre_ids[numbers],original_title, overview, popularity, poster_path, release_date
@@ -14,7 +15,12 @@ export default function State(state = initialState, action) {
     case 'FETCH_REQUEST':
       return { ...state, fetching: true };
     case 'FETCH_REQUEST_SUCCESS':
-      return { ...state, fetching: false, data: action.payload };
+      return {
+        ...state,
+        fetching: false,
+        filmsCollection: action.payload['results'],
+        page: action.payload['page'],
+      };
     case 'FETCH_REQUEST_ERROR':
       return { ...state, fetching: false };
     default:

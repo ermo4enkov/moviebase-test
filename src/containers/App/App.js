@@ -4,7 +4,6 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import logo from '../../assets/logo.svg';
 import './App.css';
-import SideBar from '../SideBar';
 import MovieList from '../MovieList';
 
 import getFilmsCollection from '../../redux/actions/getFilmsCollection';
@@ -12,7 +11,7 @@ import { bindActionCreators } from 'redux';
 
 class App extends Component {
   componentDidMount() {
-    this.props.getFilmsCollection(1);
+    this.props.getFilmsCollection();
   }
   render() {
     return (
@@ -22,7 +21,6 @@ class App extends Component {
             <img src={logo} className="App-logo" alt="logo" />
             <h1 className="App-title">Welcome to React</h1>
           </header>
-          <SideBar />
           <MovieList />
           <p className="App-intro">
             To get started, edit <code>src/App.js</code> and save to reload.
@@ -36,8 +34,9 @@ class App extends Component {
 function mapStateToProps(state) {
   return {
     user: state.user,
-    data: state.data,
+    filmsCollection: state.filmsCollection,
     fetching: state.fetching,
+    page: state.page,
   };
 }
 
