@@ -8,12 +8,23 @@ class Pagination extends Component {
   }
 
   render() {
-    const total_pages = this.props['total_pages'];
-    console.log(typeof total_pages);
+    const { total_pages, page } = this.props;
     const Select = () => {
       const res = [];
-      if (total_pages > 0) {
-        for (let i = 1; i < total_pages; i++) {
+      if (total_pages > 0 && page < total_pages && page > 3) {
+        for (let i = page - 3; i < page + 4; i++) {
+          res.push(<PageSelector key={i} number={i} />);
+        }
+      } else if (total_pages > 0 && page < total_pages && page === 2) {
+        for (let i = page - 1; i < page + 4; i++) {
+          res.push(<PageSelector key={i} number={i} />);
+        }
+      } else if (total_pages > 0 && page < total_pages && page === 1) {
+        for (let i = page; i < page + 5; i++) {
+          res.push(<PageSelector key={i} number={i} />);
+        }
+      } else if (total_pages > 0 && page === total_pages) {
+        for (let i = page - 5; i < page + 1; i++) {
           res.push(<PageSelector key={i} number={i} />);
         }
       } else {
@@ -34,6 +45,7 @@ class Pagination extends Component {
 function mapStateToProps(state) {
   return {
     total_pages: state.total_pages,
+    page: state.page,
   };
 }
 

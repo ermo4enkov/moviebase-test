@@ -12,7 +12,7 @@ import { bindActionCreators } from 'redux';
 
 class App extends Component {
   componentDidMount() {
-    this.props.getFilmsCollection();
+    this.props.getFilmsCollection(991);
   }
   render() {
     return (
@@ -36,7 +36,7 @@ class App extends Component {
 function mapStateToProps(state) {
   return {
     user: state.user,
-    filmsCollection: state.filmsCollection,
+    films_collection: state.films_collection,
     fetching: state.fetching,
     page: state.page,
   };

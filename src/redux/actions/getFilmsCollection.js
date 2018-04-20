@@ -6,7 +6,6 @@ export function getFilmsCollection(page = 1) {
     dispatch(fetchFilmsRequest());
     return request(`${POPULAR_FILMS}${page}`).then(response => {
       if (response.status === 200) {
-        console.log(response['data']);
         dispatch(fetchFilmsSuccess(response['data']));
       } else {
         dispatch(fetchFilmsError());

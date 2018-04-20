@@ -4,7 +4,7 @@ import request from '../../utils/request';
 const initialState = {
   error: '',
   fetching: false,
-  filmsCollection: {},
+  films_collection: {},
   user: 'guest',
   page: 1,
   total_pages: 0,
@@ -19,7 +19,7 @@ export default function State(state = initialState, action) {
       return {
         ...state,
         fetching: false,
-        filmsCollection: action.payload['results'],
+        films_collection: action.payload['results'],
         page: action.payload['page'],
         total_pages: action.payload['total_pages'],
       };

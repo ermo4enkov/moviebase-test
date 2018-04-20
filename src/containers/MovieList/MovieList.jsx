@@ -5,10 +5,10 @@ import MovieCard from '../../components/MovieCard';
 
 class MovieList extends Component {
   render() {
-    const { filmsCollection } = this.props;
+    const { films_collection } = this.props;
     const MovieCards =
-      filmsCollection.length > 0
-        ? filmsCollection.map((item, index) => {
+      films_collection.length > 0
+        ? films_collection.map((item, index) => {
             return (
               <MovieCard
                 key={index}
@@ -28,7 +28,7 @@ class MovieList extends Component {
 
 function mapStateToProps(state) {
   return {
-    filmsCollection: state.filmsCollection,
+    films_collection: state.films_collection,
   };
 }
 
