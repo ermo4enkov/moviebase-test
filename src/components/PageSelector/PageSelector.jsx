@@ -1,13 +1,12 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
-class PageSelector extends Component {
+class PageSelector extends PureComponent {
   showList() {
     const { number, getFilmsCollection } = this.props;
-    console.log(number);
     getFilmsCollection(number);
   }
   render() {
-    const { number, getFilmsCollection } = this.props;
+    const { number } = this.props;
     return (
       <div className="PageSelector" onClick={this.showList.bind(this)}>
         {number}

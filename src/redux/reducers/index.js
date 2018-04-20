@@ -25,6 +25,12 @@ export default function State(state = initialState, action) {
       };
     case 'FETCH_REQUEST_ERROR':
       return { ...state, fetching: false };
+    case 'SEARCH':
+      const { value } = action;
+      const coll = state.films_collection.filter(title =>
+        title.includes(value),
+      );
+      return { ...state, films_collection: coll };
     default:
       return state;
   }

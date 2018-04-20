@@ -8,11 +8,13 @@ import MovieList from '../MovieList';
 import Pagination from '../Pagination';
 
 import getFilmsCollection from '../../redux/actions/getFilmsCollection';
+import searchFilmsInCollection from '../../redux/actions/searchFilmsInCollection';
+
 import { bindActionCreators } from 'redux';
 
 class App extends Component {
   componentDidMount() {
-    this.props.getFilmsCollection(990);
+    this.props.getFilmsCollection();
   }
   render() {
     return (
@@ -45,6 +47,10 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     getFilmsCollection: bindActionCreators(getFilmsCollection, dispatch),
+    searchFilmsInCollection: bindActionCreators(
+      searchFilmsInCollection,
+      dispatch,
+    ),
   };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(App);
