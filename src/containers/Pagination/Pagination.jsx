@@ -14,8 +14,11 @@ class Pagination extends Component {
     const { total_pages, page, getFilmsCollection } = this.props;
     const Select = () => {
       const res = [];
-      if (total_pages > 0 && page < total_pages && page > 3) {
+      if (total_pages > 0 && page <= total_pages) {
         for (let i = page - 3; i < page + 4; i++) {
+          if (i < 1 || i > total_pages) {
+            continue;
+          }
           res.push(
             <PageSelector
               key={i}
@@ -24,20 +27,8 @@ class Pagination extends Component {
             />,
           );
         }
-      } else if (total_pages > 0 && page < total_pages && page === 2) {
-        for (let i = page - 1; i < page + 4; i++) {
-          res.push(<PageSelector key={i} number={i} />);
-        }
-      } else if (total_pages > 0 && page < total_pages && page === 1) {
-        for (let i = page; i < page + 5; i++) {
-          res.push(<PageSelector key={i} number={i} />);
-        }
-      } else if (total_pages > 0 && page === total_pages) {
-        for (let i = page - 5; i < page + 1; i++) {
-          res.push(<PageSelector key={i} number={i} />);
-        }
       } else {
-        return <div>sdsd</div>;
+        return <div />;
       }
 
       return res;

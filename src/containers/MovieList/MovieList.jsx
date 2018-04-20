@@ -20,7 +20,7 @@ class MovieList extends Component {
               />
             );
           })
-        : '...load';
+        : 'load...';
 
     return <div>{MovieCards}</div>;
   }
