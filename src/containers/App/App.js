@@ -12,7 +12,7 @@ import { bindActionCreators } from 'redux';
 
 class App extends Component {
   componentDidMount() {
-    this.props.getFilmsCollection(991);
+    this.props.getFilmsCollection(8);
   }
   render() {
     return (

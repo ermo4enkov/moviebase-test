@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 
 const PageSelector = props => {
-  return <div className="PageSelector">{props['number']}</div>;
+  const { number, getFilmsCollection } = props;
+  return <div className="PageSelector">{number}</div>;
 };
 
 export default PageSelector;
