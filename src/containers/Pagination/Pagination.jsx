@@ -1,15 +1,11 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import PageSelector from '../../components/PageSelector';
 
 import getFilmsCollection from '../../redux/actions/getFilmsCollection';
 import { bindActionCreators } from 'redux';
 
-class Pagination extends Component {
-  componentDidUpdate() {
-    console.log(this.props);
-  }
-
+class Pagination extends PureComponent {
   render() {
     const { total_pages, page, getFilmsCollection } = this.props;
     const Select = () => {

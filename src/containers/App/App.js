@@ -6,6 +6,7 @@ import logo from '../../assets/logo.svg';
 import './App.css';
 import MovieList from '../MovieList';
 import Pagination from '../Pagination';
+import SearchFilm from '../SearchFilm';
 
 import getFilmsCollection from '../../redux/actions/getFilmsCollection';
 import searchFilmsInCollection from '../../redux/actions/searchFilmsInCollection';
@@ -23,6 +24,7 @@ class App extends Component {
           <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
             <h1 className="App-title">Welcome to React</h1>
+            <SearchFilm />
           </header>
           <MovieList />
           <Pagination />

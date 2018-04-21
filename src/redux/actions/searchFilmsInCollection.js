@@ -1,12 +1,11 @@
 export function searchFilmsInCollection(value) {
   return dispatch => {
-    return;
-    dispatch(search(value));
+    dispatch(searchFilm(value));
   };
 }
 
-export function search(value) {
-  return { type: 'SEARCH', value };
+export function searchFilm(payload) {
+  return { type: 'SEARCH', payload };
 }
 
 export default searchFilmsInCollection;
