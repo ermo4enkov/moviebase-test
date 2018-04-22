@@ -1,6 +1,3 @@
-import { TOKEN, POPULAR_FILMS } from '../../utils/constants';
-import request from '../../utils/request';
-
 const initialState = {
   error: '',
   fetching: false,
@@ -16,6 +13,7 @@ export default function State(state = initialState, action) {
     case 'FETCH_REQUEST':
       return { ...state, fetching: true };
     case 'FETCH_REQUEST_SUCCESS':
+      console.log('THIS IS REQUEST', action.payload);
       return {
         ...state,
         fetching: false,
@@ -23,15 +21,16 @@ export default function State(state = initialState, action) {
         page: action.payload['page'],
         total_pages: action.payload['total_pages'],
       };
-    case 'FETCH_REQUEST_ERROR':
-      return { ...state, fetching: false };
     case 'SEARCH':
-      const { value } = action.payload;
-      const coll = state.films_collection.filter(title =>
-        title.includes(value),
-      );
+      console.log('THIS IS SEARCH', action.payload);
+      const value = action.payload;
+      const coll = state.films_collection.forEach(element => {
+        element.filter(title => title.includes(value));
+      });
       console.log(coll);
       return { ...state, films_collection: coll };
+    case 'FETCH_REQUEST_ERROR':
+      return { ...state, fetching: false };
     default:
       return state;
   }

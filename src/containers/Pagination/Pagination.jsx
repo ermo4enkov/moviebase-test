@@ -7,7 +7,6 @@ import { bindActionCreators } from 'redux';
 
 class Pagination extends PureComponent {
   render() {
-    console.log('Pagination props', this.props);
     const { total_pages, page, getFilmsCollection } = this.props;
     const Select = () => {
       const res = [];

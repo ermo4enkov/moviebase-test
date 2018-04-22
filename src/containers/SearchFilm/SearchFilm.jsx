@@ -18,11 +18,6 @@ export class SearchFilm extends Component {
     );
   }
 }
-// function mapDispatchToProps(dispatch) {
-//   return {
-//     getFilmsCollection: bindActionCreators(getFilmsCollection, dispatch),
-//   };
-// }
 
 function mapDispatchToProps(dispatch) {
   return {
