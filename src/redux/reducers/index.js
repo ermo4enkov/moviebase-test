@@ -23,12 +23,18 @@ export default function State(state = initialState, action) {
       };
     case 'SEARCH':
       console.log('THIS IS SEARCH', action.payload);
-      const value = action.payload;
-      const coll = state.films_collection.forEach(element => {
-        element.filter(title => title.includes(value));
-      });
-      console.log(coll);
-      return { ...state, films_collection: coll };
+      const value = action.payload.toLowerCase();
+      console.log(value);
+      const result = state.films_collection.filter(element =>
+        element['title'].toLowerCase().includes(value),
+      );
+
+      // const result = state.films_collection.forEach(element =>
+      //   element.filter(item => item['title'].includes(value)),
+      // );
+
+      console.log(result);
+      return { ...state, films_collection: result };
     case 'FETCH_REQUEST_ERROR':
       return { ...state, fetching: false };
     default:

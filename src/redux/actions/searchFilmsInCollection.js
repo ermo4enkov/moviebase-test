@@ -1,4 +1,5 @@
 export function searchFilmsInCollection(value) {
+  console.log(value);
   return dispatch => {
     dispatch(searchFilm(value));
   };
@@ -6,13 +7,6 @@ export function searchFilmsInCollection(value) {
 
 function searchFilm(payload) {
   return { type: 'SEARCH', payload };
-}
-
-function fetchFilmsSuccess(payload) {
-  return {
-    type: 'FETCH_REQUEST_SUCCESS',
-    payload,
-  };
 }
 
 export default searchFilmsInCollection;
