@@ -9,7 +9,6 @@ export default function configureStore(initialState) {
   const store = createStore(
     reducer,
     initialState,
-
     composeWithDevTools(applyMiddleware(thunk, logger)),
   );
   return store;
