@@ -1,6 +1,7 @@
 export function searchFilmsInCollection(value) {
+  console.log(value);
   return dispatch => {
-    return dispatch(searchFilm(value));
+    dispatch(searchFilm(value));
   };
 }
 

@@ -9,7 +9,8 @@ class SearchInput extends PureComponent {
     searchFilmsInCollection(event.target.value);
   }
   render() {
-    return <input type="text" onChange={this.findFilmByTitle.bind(this)} />;
+    console.log(this.props);
+    return <input type="text" onClick={this.findFilmByTitle.bind(this)} />;
   }
 }
 

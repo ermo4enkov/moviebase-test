@@ -3,7 +3,7 @@ import { POPULAR_FILMS } from '../../utils/constants';
 
 export function getFilmsCollection(page = 1) {
   return dispatch => {
-    dispatch(fetchFilmsRequest());
+    dispatch(fetchFilmsRequest(page));
     return request(`${POPULAR_FILMS}${page}`).then(response => {
       if (response.status === 200) {
         dispatch(fetchFilmsSuccess(response['data']));
