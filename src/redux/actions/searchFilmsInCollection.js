@@ -1,11 +1,14 @@
 export function searchFilmsInCollection(value) {
-  console.log(value);
   return dispatch => {
-    dispatch(searchFilm(value));
+    value.length ? dispatch(searchFilm(value)) : dispatch(emptyField(value));
   };
 }
 
 function searchFilm(payload) {
+  return { type: 'SEARCH', payload };
+}
+
+function emptyField(payload) {
   return { type: 'SEARCH', payload };
 }
 

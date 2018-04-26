@@ -3,33 +3,49 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import searchFilmsInCollection from '../../redux/actions/searchFilmsInCollection';
 
-import SearchInput from '../../components/SearchInput';
+// import SearchInput from '../../components/SearchInput';
 
 export class SearchFilm extends Component {
   constructor() {
     super();
+    this.findmeAFilm = this.findmeAFilm.bind(this);
   }
-  componentDidMount() {
+
+  findmeAFilm(event) {
     const { searchFilmsInCollection } = this.props;
-    setTimeout(function() {
-      searchFilmsInCollection('zoo');
-    }, 3000);
+    searchFilmsInCollection(event.target.value);
   }
+  // componentDidMount() {
+  //   const { searchFilmsInCollection } = this.props;
+  //   setTimeout(function() {
+  //     searchFilmsInCollection('zoo');
+  //   }, 3000);
+  // }
   render() {
     return (
       <div>
-        <SearchInput searchFilmsInCollection={searchFilmsInCollection} />
+        <input type="text" onChange={this.findmeAFilm} />
+        {/* <SearchInput searchFilmsInCollection={searchFilmsInCollection()} /> */}
       </div>
     );
   }
 }
 
+// function mapDispatchToProps(dispatch) {
+//   return {
+//     searchFilmsInCollection: bindActionCreators(
+//       searchFilmsInCollection,
+//       dispatch,
+//     ),
+//   };
+// }
+
 function mapDispatchToProps(dispatch) {
-  return {
-    searchFilmsInCollection: bindActionCreators(
-      searchFilmsInCollection,
-      dispatch,
-    ),
-  };
+  return bindActionCreators(
+    {
+      searchFilmsInCollection: searchFilmsInCollection,
+    },
+    dispatch,
+  );
 }
 export default connect(null, mapDispatchToProps)(SearchFilm);
