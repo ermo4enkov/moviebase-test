@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import SearchInput from '../../components/SearchInput';
-
-import searchFilmsInCollection from '../../redux/actions/searchFilmsInCollection';
 import { bindActionCreators } from 'redux';
+import searchFilmsInCollection from '../../redux/actions/searchFilmsInCollection';
+
+import SearchInput from '../../components/SearchInput';
 
 export class SearchFilm extends Component {
   constructor() {
     super();
   }
   componentDidMount() {
-    const { dispatch } = this.props;
+    const { searchFilmsInCollection } = this.props;
     setTimeout(function() {
-      dispatch(searchFilmsInCollection('zoo'));
+      searchFilmsInCollection('zoo');
     }, 3000);
   }
   render() {
@@ -32,4 +32,4 @@ function mapDispatchToProps(dispatch) {
     ),
   };
 }
-export default connect(mapDispatchToProps)(SearchFilm);
+export default connect(null, mapDispatchToProps)(SearchFilm);
