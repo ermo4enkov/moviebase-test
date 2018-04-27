@@ -22,6 +22,7 @@ export default function State(state = initialState, action) {
         filtered_collection: action.payload['results'],
         page: action.payload['page'],
         total_pages: action.payload['total_pages'],
+        search_text: '',
       };
     case 'SEARCH_STARTED':
       const value = action.payload.toLowerCase();
