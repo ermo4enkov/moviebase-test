@@ -7,6 +7,7 @@ import './App.css';
 import MovieList from '../MovieList';
 import Pagination from '../Pagination';
 import SearchFilm from '../SearchFilm';
+import MoviesCollectionPage from '../../components/MoviesCollectionPage/MoviesCollectionPage';
 
 import getFilmsCollection from '../../redux/actions/getFilmsCollection';
 
@@ -21,12 +22,12 @@ class App extends Component {
       <MuiThemeProvider>
         <div className="App">
           <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <h1 className="App-title">Welcome to React</h1>
-            <SearchFilm />
+            <h1 className="App-title">Welcome to Films base</h1>
+            {/* <SearchFilm /> */}
           </header>
-          <MovieList />
-          <Pagination />
+          {/* <MovieList />
+          <Pagination /> */}
+          <MoviesCollectionPage />
         </div>
       </MuiThemeProvider>
     );
