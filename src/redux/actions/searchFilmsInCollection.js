@@ -1,15 +1,15 @@
 export function searchFilmsInCollection(value) {
   return dispatch => {
-    value.length ? dispatch(searchFilm(value)) : dispatch(emptyField(value));
+    value.length ? dispatch(searchFilm(value)) : dispatch(searchFilm(value));
   };
 }
 
 function searchFilm(payload) {
-  return { type: 'SEARCH', payload };
+  return { type: 'SEARCH_STARTED', payload };
 }
 
-function emptyField(payload) {
-  return { type: 'SEARCH', payload };
+function emptyField() {
+  return { type: 'SEARCH_FINISHED' };
 }
 
 export default searchFilmsInCollection;

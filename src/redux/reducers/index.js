@@ -2,6 +2,8 @@ const initialState = {
   error: '',
   fetching: false,
   films_collection: {},
+  filtered_collection: {},
+  search_text: '',
   user: 'guest',
   page: 1,
   total_pages: 0,
@@ -17,15 +19,26 @@ export default function State(state = initialState, action) {
         ...state,
         fetching: false,
         films_collection: action.payload['results'],
+        filtered_collection: action.payload['results'],
         page: action.payload['page'],
         total_pages: action.payload['total_pages'],
       };
-    case 'SEARCH':
+    case 'SEARCH_STARTED':
       const value = action.payload.toLowerCase();
       const result = state.films_collection.filter(element =>
         element['title'].toLowerCase().includes(value),
       );
-      return { ...state, films_collection: result };
+      return {
+        ...state,
+        search_text: value,
+        filtered_collection: result,
+      };
+    case 'SEARCH_FINISHED':
+      return {
+        ...state,
+        search_text: '',
+        filtered_collection: state.films_collection,
+      };
     case 'FETCH_REQUEST_ERROR':
       return { ...state, fetching: false };
     default:

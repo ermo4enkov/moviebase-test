@@ -15,30 +15,22 @@ export class SearchFilm extends Component {
     const { searchFilmsInCollection } = this.props;
     searchFilmsInCollection(event.target.value);
   }
-  // componentDidMount() {
-  //   const { searchFilmsInCollection } = this.props;
-  //   setTimeout(function() {
-  //     searchFilmsInCollection('zoo');
-  //   }, 3000);
-  // }
+
   render() {
+    const { search_text } = this.props;
     return (
       <div>
-        <input type="text" onChange={this.findmeAFilm} />
+        <input type="text" onChange={this.findmeAFilm} value={search_text} />
         {/* <SearchInput searchFilmsInCollection={searchFilmsInCollection()} /> */}
       </div>
     );
   }
 }
-
-// function mapDispatchToProps(dispatch) {
-//   return {
-//     searchFilmsInCollection: bindActionCreators(
-//       searchFilmsInCollection,
-//       dispatch,
-//     ),
-//   };
-// }
+function mapStateToProps(state) {
+  return {
+    search_text: state.search_text,
+  };
+}
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
@@ -48,4 +40,4 @@ function mapDispatchToProps(dispatch) {
     dispatch,
   );
 }
-export default connect(null, mapDispatchToProps)(SearchFilm);
+export default connect(mapStateToProps, mapDispatchToProps)(SearchFilm);
