@@ -26,7 +26,7 @@ class App extends Component {
         <Router>
           <Switch>
             <Route path="/" exact component={MoviesCollectionPage} />
-            <Route path="/movie" component={MoviePage} />
+            <Route path="/movie/:id" component={MoviePage} />
             {/* <Route component={NoMatch} /> */}
           </Switch>
         </Router>

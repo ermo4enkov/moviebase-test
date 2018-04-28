@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
 import MovieCard from '../../components/MovieCard';
 
 class MovieList extends Component {
@@ -18,6 +17,7 @@ class MovieList extends Component {
                 vote_average={item['vote_average']}
                 release_date={item['release_date']}
                 overview={item['overview']}
+                id={item['id']}
               />
             );
           })
@@ -34,6 +34,7 @@ class MovieList extends Component {
                 vote_average={item['vote_average']}
                 release_date={item['release_date']}
                 overview={item['overview']}
+                id={item['id']}
               />
             );
           })
