@@ -39,10 +39,31 @@ export class MoviePage extends Component {
     );
   }
   render() {
+    const {
+      budget,
+      genres,
+      homepage,
+      original_title,
+      overview,
+      poster_path,
+      production_companies,
+      release_date,
+      tagline,
+      vote_average,
+      vote_count,
+    } = this.state;
     return (
       <div>
         Film page
-        <img src={`${IMAGE_URL}${this.state['poster_path']}`} alt="poster" />
+        <div>{budget}</div>
+        <div>{homepage}</div>
+        <div>{original_title}</div>
+        <div>{overview}</div>
+        <div>{release_date}</div>
+        <div>{tagline}</div>
+        <div>{vote_average}</div>
+        <div>{vote_count}</div>
+        <img src={`${IMAGE_URL}${poster_path}`} alt="poster" />
       </div>
     );
   }

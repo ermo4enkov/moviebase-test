@@ -14,9 +14,6 @@ class MovieList extends Component {
                 key={index}
                 title={item['title']}
                 poster_path={item['poster_path']}
-                vote_average={item['vote_average']}
-                release_date={item['release_date']}
-                overview={item['overview']}
                 id={item['id']}
               />
             );
@@ -31,9 +28,6 @@ class MovieList extends Component {
                 key={index}
                 title={item['title']}
                 poster_path={item['poster_path']}
-                vote_average={item['vote_average']}
-                release_date={item['release_date']}
-                overview={item['overview']}
                 id={item['id']}
               />
             );
