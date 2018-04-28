@@ -3,9 +3,18 @@ import { connect } from 'react-redux';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import './App.css';
 import MoviesCollectionPage from '../../components/MoviesCollectionPage/MoviesCollectionPage';
+import MoviePage from '../../containers/MoviePage/MoviePage';
 import getFilmsCollection from '../../redux/actions/getFilmsCollection';
 
 import { bindActionCreators } from 'redux';
+
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Switch,
+  Redirect,
+} from 'react-router-dom';
 
 class App extends Component {
   componentDidMount() {
@@ -14,7 +23,13 @@ class App extends Component {
   render() {
     return (
       <MuiThemeProvider>
-        <MoviesCollectionPage />
+        <Router>
+          <Switch>
+            <Route path="/" exact component={MoviesCollectionPage} />
+            <Route path="/movie" component={MoviePage} />
+            {/* <Route component={NoMatch} /> */}
+          </Switch>
+        </Router>
       </MuiThemeProvider>
     );
   }
