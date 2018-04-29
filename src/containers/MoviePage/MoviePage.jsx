@@ -55,14 +55,14 @@ export class MoviePage extends Component {
     return (
       <div>
         Film page
-        <div>{budget}</div>
-        <div>{homepage}</div>
-        <div>{original_title}</div>
-        <div>{overview}</div>
-        <div>{release_date}</div>
-        <div>{tagline}</div>
-        <div>{vote_average}</div>
-        <div>{vote_count}</div>
+        <div>Budget {budget}</div>
+        <div>Homepage {homepage}</div>
+        <div>Title {original_title}</div>
+        <div>Overview {overview}</div>
+        <div>Release {release_date}</div>
+        <div>Tagline {tagline}</div>
+        <div>Vote {vote_average}</div>
+        <div>Vote count {vote_count}</div>
         <img src={`${IMAGE_URL}${poster_path}`} alt="poster" />
       </div>
     );
