@@ -1,8 +1,9 @@
 const initialState = {
   error: '',
   fetching: false,
-  films_collection: {},
-  filtered_collection: {},
+  films_collection: [],
+  filtered_collection: [],
+  favorites: [],
   search_text: '',
   user: 'guest',
   page: 1,

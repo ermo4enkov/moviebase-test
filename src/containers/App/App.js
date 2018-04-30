@@ -21,19 +21,20 @@ class App extends Component {
   render() {
     return (
       <MuiThemeProvider>
-        <header>
-          Movie Base test example
-        </header>
+          <div>
+              <header>Movie base</header>
         <Router>
           <Switch>
             <Route path="/" exact component={MoviesCollectionPage} />
             <Route path="/movie/:id" component={MoviePage} />
+            {/*<Route path="/favorites" component={} />*/}
             {/* <Route component={NoMatch} /> */}
           </Switch>
         </Router>
         <footer>
           @ermo4enkov
         </footer>
+          </div>
       </MuiThemeProvider>
     );
   }
