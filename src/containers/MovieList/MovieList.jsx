@@ -15,6 +15,7 @@ class MovieList extends Component {
                 title={item['title']}
                 poster_path={item['poster_path']}
                 id={item['id']}
+                overview={item['overview']}
               />
             );
           })
@@ -29,15 +30,16 @@ class MovieList extends Component {
                 title={item['title']}
                 poster_path={item['poster_path']}
                 id={item['id']}
+                overview={item['overview']}
               />
             );
           })
         : 'load...';
 
     return !search_text.length > 0 ? (
-      <div>{MovieCards}</div>
+      <div className="container">{MovieCards}</div>
     ) : (
-      <div>{filteredCards}</div>
+      <div className="container">{filteredCards}</div>
     );
     // return <div>{MovieCards}</div>;
   }

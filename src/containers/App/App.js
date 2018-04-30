@@ -11,9 +11,7 @@ import { bindActionCreators } from 'redux';
 import {
   BrowserRouter as Router,
   Route,
-  Link,
   Switch,
-  Redirect,
 } from 'react-router-dom';
 
 class App extends Component {
@@ -23,6 +21,9 @@ class App extends Component {
   render() {
     return (
       <MuiThemeProvider>
+        <header>
+          Movie Base test example
+        </header>
         <Router>
           <Switch>
             <Route path="/" exact component={MoviesCollectionPage} />
@@ -30,6 +31,9 @@ class App extends Component {
             {/* <Route component={NoMatch} /> */}
           </Switch>
         </Router>
+        <footer>
+          @ermo4enkov
+        </footer>
       </MuiThemeProvider>
     );
   }

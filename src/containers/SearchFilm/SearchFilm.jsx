@@ -2,8 +2,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import searchFilmsInCollection from '../../redux/actions/searchFilmsInCollection';
+import TextField from 'material-ui/TextField';
 
-// import SearchInput from '../../components/SearchInput';
+const styles = {
+  textAlign: 'center'
+};
+
+const stylesTextField ={
+  width: "100%"
+};
 
 export class SearchFilm extends Component {
   constructor() {
@@ -19,9 +26,8 @@ export class SearchFilm extends Component {
   render() {
     const { search_text } = this.props;
     return (
-      <div>
-        <input type="text" onChange={this.findmeAFilm} value={search_text} />
-        {/* <SearchInput searchFilmsInCollection={searchFilmsInCollection()} /> */}
+      <div style={styles}>
+        <TextField hintText="find film by title" onChange={this.findmeAFilm} value={search_text} style={stylesTextField}/>
       </div>
     );
   }

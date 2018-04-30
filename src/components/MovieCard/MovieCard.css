@@ -1,0 +1,25 @@
+.MovieCard{
+    display: flex;
+    padding:0;
+    margin: 0;
+    border: 1px solid #000;
+    max-width: 50%;
+    width: 400px;
+    margin-bottom: 40px;
+}
+
+.MovieCard__about{
+    padding: 10px 20px;
+}
+.MovieCard__title{
+    font-weight: 900;
+    margin-bottom: 20px;
+}
+
+.MovieCard__overview{
+    font-size: 12px;
+    max-height: 118px;
+    overflow: auto;
+    text-overflow: ellipsis;
+    display: inline-block;
+}

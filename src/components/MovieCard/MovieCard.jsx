@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
 import { IMAGE_URL } from '../../utils/constants';
 import { Link } from 'react-router-dom';
+import './MovieCard.css';
 
 const MovieCard = props => {
   const link = `/movie/:id${props['id']}`;
+  console.log(props)
   return (
     <Link className="MovieCard" to={link}>
-      {props['title']}
       <img src={`${IMAGE_URL}${props['poster_path']}`} alt="poster" />
-      {props['vote_average']}
-      {props['release_date']}
-      {props['overview']}
+      <div className="MovieCard__about">
+        <div className="MovieCard__title">{props['title']}</div>
+        <div className="MovieCard__overview">{props['overview']}</div>
+      </div>
     </Link>
   );
 };
