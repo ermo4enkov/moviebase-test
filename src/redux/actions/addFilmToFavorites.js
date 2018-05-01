@@ -1,5 +1,4 @@
 export function addFilmToFavorites(value) {
-    console.log(value);
     return dispatch => {
         dispatch(addFilm(value))
     };

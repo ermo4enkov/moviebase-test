@@ -1,6 +1,6 @@
 export function searchFilmsInCollection(value) {
   return dispatch => {
-    value.length ? dispatch(searchFilm(value)) : dispatch(searchFilm(value));
+    value.length ? dispatch(searchFilm(value)) : dispatch(emptyField(value));
   };
 }
 
