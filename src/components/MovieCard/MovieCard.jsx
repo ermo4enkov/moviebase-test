@@ -3,10 +3,10 @@ import { IMAGE_URL } from '../../utils/constants';
 import { Link } from 'react-router-dom';
 import './MovieCard.css';
 import RaisedButton from 'material-ui/RaisedButton';
+import FavoritesButton from '../../containers/FavoritesButton';
 
 const MovieCard = props => {
   const link = `/movie/:id${props['id']}`;
-  console.log(props.num);
   return (
     <div className="MovieCard" >
       <img src={`${IMAGE_URL}${props['poster_path']}`} alt="poster" to={link}/>
@@ -16,7 +16,7 @@ const MovieCard = props => {
         <Link to={link}>
             <RaisedButton>More detail...</RaisedButton>
         </Link>
-        <RaisedButton>Add to favorites</RaisedButton>
+          <FavoritesButton num={props.num}/>
       </div>
     </div>
   );

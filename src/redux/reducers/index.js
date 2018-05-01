@@ -41,6 +41,8 @@ export default function State(state = initialState, action) {
         search_text: '',
         filtered_collection: state.films_collection,
       };
+    // case 'ADD_FILM_TO_FAVORITES':
+    //       r
     case 'FETCH_REQUEST_ERROR':
       return { ...state, fetching: false };
     default:

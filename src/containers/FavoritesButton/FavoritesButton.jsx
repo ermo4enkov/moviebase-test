@@ -1,11 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import RaisedButton from 'material-ui/RaisedButton';
+import addFilmToFavorites from '../../redux/actions/addFilmToFavorites';
+import { bindActionCreators } from 'redux';
 
 
 export class FavoritesButton extends Component {
     constructor() {
         super();
-        this.addFilmToFavorites = this.addFilmToFavorites.bind(this);
+    }
+
+    addFilmToFav(number){
+        console.log(number);
+        const { addFilmToFavorites } = this.props;
+        addFilmToFavorites(number);
+    }
+
+    render(){
+        return <RaisedButton onClick={() => this.addFilmToFav(this.props.num)}>Add to favorites</RaisedButton>
     }
 }
 
@@ -18,4 +30,4 @@ function mapDispatchToProps(dispatch) {
     );
 }
 
-export default connect(mapStateToProps)(FavoritesButton);
+export default connect(null, mapDispatchToProps)(FavoritesButton);

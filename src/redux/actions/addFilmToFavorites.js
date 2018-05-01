@@ -1,16 +1,13 @@
 export function addFilmToFavorites(value) {
+    console.log(value);
     return dispatch => {
-        value.length ? dispatch(searchFilm(value)) : dispatch(searchFilm(value));
+        dispatch(addFilm(value))
     };
 }
 
-function searchFilm(payload) {
-    return { type: 'SEARCH_STARTED', payload };
+function addFilm(payload) {
+    return { type: 'ADD_FILM_TO_FAVORITES', payload };
 }
 
-function emptyField() {
-    return { type: 'SEARCH_FINISHED' };
-}
-
-export default searchFilmsInCollection;
+export default addFilmToFavorites;
 
