@@ -6,6 +6,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 
 const MovieCard = props => {
   const link = `/movie/:id${props['id']}`;
+  console.log(props.num);
   return (
     <div className="MovieCard" >
       <img src={`${IMAGE_URL}${props['poster_path']}`} alt="poster" to={link}/>

@@ -12,6 +12,7 @@ class MovieList extends Component {
             return (
               <MovieCard
                 key={index}
+                num={index}
                 title={item['title']}
                 poster_path={item['poster_path']}
                 id={item['id']}
@@ -27,6 +28,7 @@ class MovieList extends Component {
             return (
               <MovieCard
                 key={index}
+                num={index}
                 title={item['title']}
                 poster_path={item['poster_path']}
                 id={item['id']}
