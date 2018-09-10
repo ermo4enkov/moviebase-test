@@ -42,7 +42,6 @@ export default function State(state = initialState, action) {
         filtered_collection: state.films_collection,
       };
       case 'ADD_FILM_TO_FAVORITES':
-        // return Object.assign({}, state, { films_collection: [...state.films_collection, action.newTeam] });
         state.favorites.push(state.films_collection[action.payload])
         return {
             ...state,
