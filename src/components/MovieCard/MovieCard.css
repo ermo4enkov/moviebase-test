@@ -23,3 +23,7 @@
   overflow: hidden;
   display: inline-block;
 }
+
+.MovieCard__img{
+  min-width: 150px;
+}
