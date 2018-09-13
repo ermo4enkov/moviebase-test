@@ -15,7 +15,7 @@ const MovieCard = props => {
         <div className="MovieCard__overview">{props['overview']}</div>
         <div className="MovieCard__buttonWrap">
           <Link to={link}>
-            <RaisedButton>More detail...</RaisedButton>
+            <RaisedButton className="MovieCard__button">More detail...</RaisedButton>
           </Link>
           <FavoritesButton num={props.num}/>
         </div>
