@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import request from '../../utils/request';
 import { FILM_URL, TOKEN, IMAGE_URL } from '../../utils/constants';
+import './MoviePage.css';
 
 export class MoviePage extends Component {
   constructor() {
@@ -52,18 +53,24 @@ export class MoviePage extends Component {
       vote_average,
       vote_count,
     } = this.state;
+
+    const imageUrl = `${IMAGE_URL}${poster_path}`;
+    console.log(imageUrl)
     return (
-      <div>
-        Film page
-        <div>Budget {budget}</div>
-        <div>Homepage {homepage}</div>
-        <div>Title {original_title}</div>
-        <div>Overview {overview}</div>
-        <div>Release {release_date}</div>
-        <div>Tagline {tagline}</div>
-        <div>Vote {vote_average}</div>
-        <div>Vote count {vote_count}</div>
-        <img src={`${IMAGE_URL}${poster_path}`} alt="poster" />
+      <div className="MoviePage container">
+        <div>
+          <img className="MoviePage__poster" src={imageUrl} alt="movie poster"/>
+        </div>
+        <div>
+          <div><span className="MoviePage__title">Title:</span> {original_title}</div>
+          <div><span className="MoviePage__title">Homepage:</span> <a href={homepage}>{homepage}</a></div>
+          <div><span className="MoviePage__title">Budget:</span> {budget}</div>
+          <div><span className="MoviePage__title">Overview:</span> {overview}</div>
+          <div><span className="MoviePage__title">Release:</span> {release_date}</div>
+          <div><span className="MoviePage__title">Tagline:</span> {tagline}</div>
+          <div><span className="MoviePage__title">Vote:</span> {vote_average}</div>
+          <div><span className="MoviePage__title">Vote count:</span> {vote_count}</div>
+        </div>
       </div>
     );
   }
