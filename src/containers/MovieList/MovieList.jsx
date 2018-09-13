@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import MovieCard from '../../components/MovieCard';
+import './MovieList.css';
 
 class MovieList extends Component {
   render() {
@@ -39,11 +40,10 @@ class MovieList extends Component {
         : 'load...';
 
     return !search_text.length > 0 ? (
-      <div className="container">{MovieCards}</div>
+      <div className="MovieList">{MovieCards}</div>
     ) : (
-      <div className="container">{filteredCards}</div>
+      <div className="MovieList">{filteredCards}</div>
     );
-    // return <div>{MovieCards}</div>;
   }
 }
 

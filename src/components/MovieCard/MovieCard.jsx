@@ -13,10 +13,12 @@ const MovieCard = props => {
       <div className="MovieCard__about">
         <div className="MovieCard__title">{props['title']}</div>
         <div className="MovieCard__overview">{props['overview']}</div>
-        <Link to={link}>
+        <div className="MovieCard__buttonWrap">
+          <Link to={link}>
             <RaisedButton>More detail...</RaisedButton>
-        </Link>
+          </Link>
           <FavoritesButton num={props.num}/>
+        </div>
       </div>
     </div>
   );

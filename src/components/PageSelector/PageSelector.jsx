@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import './PageSelector.css';
 
 class PageSelector extends PureComponent {
   constructor() {

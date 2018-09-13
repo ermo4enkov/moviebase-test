@@ -12,11 +12,6 @@ a {
 .container{
   max-width: 920px;
   margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  padding-top: 100px;
-  padding-bottom: 100px;
 }
 
 header, footer{

@@ -27,3 +27,14 @@
 .MovieCard__img{
   min-width: 150px;
 }
+
+.MovieCard__buttonWrap{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.MovieCard__buttonWrap > * {
+  display: block !important;
+  width: 100%;
+}

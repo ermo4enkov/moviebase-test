@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import PageSelector from '../../components/PageSelector';
+import './Pagination.css';
 
 import getFilmsCollection from '../../redux/actions/getFilmsCollection';
 import { bindActionCreators } from 'redux';
@@ -31,7 +32,7 @@ class Pagination extends PureComponent {
     };
 
     return (
-      <div>
+      <div className="pagination__wrap">
         <Select />
       </div>
     );
